@@ -35,7 +35,7 @@ export default function AddClientModal() {
     <>
       <button
         type="button"
-        className="btn btn-secondary mt-3"
+        className="btn btn-secondary mt-3 float-end"
         data-bs-toggle="modal"
         data-bs-target="#addClientModal"
       >
@@ -94,7 +94,7 @@ export default function AddClientModal() {
                   />
                 </div>
                 <button
-                  className="btn btn-secondary"
+                  className="btn btn-secondary float-end"
                   data-bs-dismiss="modal"
                   type="submit"
                 >

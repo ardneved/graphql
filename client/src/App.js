@@ -6,7 +6,9 @@ import AppRoutes from './AppRoutes';
 import ConfirmationModalContextProvider from './components/ConfirmationContextModal';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
+  // uncomment for dev api
+  // uri: 'http://localhost:3000/graphql',
+  uri: '34.226.124.83:3001/graphql',
   cache
 })
 

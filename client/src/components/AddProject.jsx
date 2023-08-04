@@ -112,7 +112,7 @@ export const AddProjectModal = forwardRef((props, ref) => {
       </Button>
       <Modal show={show} onHide={close}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Project</Modal.Title>
+          <Modal.Title>{id?'Edit':'Add'} Project</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form noValidate validated={validated} onSubmit={onSubmit}>

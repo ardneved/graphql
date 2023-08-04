@@ -8,7 +8,7 @@ import ConfirmationModalContextProvider from './components/ConfirmationContextMo
 const client = new ApolloClient({
   // uncomment for dev api
   // uri: 'http://localhost:3000/graphql',
-  uri: '34.226.124.83:3001/graphql',
+  uri: 'http://34.226.124.83:3001/graphql',
   cache
 })
 

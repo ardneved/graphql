@@ -1,9 +1,9 @@
+import { BrowserRouter as Router } from 'react-router-dom'
 import { cache } from './cache';
-import Clients from './components/Clients';
 import Header from './components/Header';
 import { ApolloProvider, ApolloClient } from '@apollo/client';
-import AddClientModal from './components/AddClientModal';
-import Projects from './components/Projects';
+import AppRoutes from './AppRoutes';
+import ConfirmationModalContextProvider from './components/ConfirmationContextModal';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
@@ -14,12 +14,14 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <Header />
-        <div className="container">
-          <AddClientModal />
-          <Projects />
-          <Clients />
-        </div>
+        <ConfirmationModalContextProvider>
+          <Router>
+            <Header />
+            <div className="container">
+              <AppRoutes />
+            </div>
+          </Router>
+        </ConfirmationModalContextProvider>
       </ApolloProvider>
     </>
   );

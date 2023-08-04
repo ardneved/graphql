@@ -4,9 +4,12 @@ import { GET_CLIENTS } from "../queries/clientsQueries";
 import ClientRow from "./ClientRow";
 import Spinner from "./Spinner";
 
-export default function Clients() {
+export default function Clients({ editClient }) {
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
+  const onEditClient = (client) => {
+    editClient(client);
+  };
   if (loading) return <Spinner />;
   if (error) return <p>Something went wrong...</p>;
 
@@ -26,7 +29,11 @@ export default function Clients() {
             </thead>
             <tbody>
               {data.clients.map((client) => (
-                <ClientRow key={client.id} client={client} />
+                <ClientRow
+                  key={client.id}
+                  client={client}
+                  triggerEditClient={onEditClient}
+                />
               ))}
             </tbody>
           </table>

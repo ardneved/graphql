@@ -21,6 +21,19 @@ code {
   margin-right: 10px;
 }
 
+.nav-item {
+  color: grey;
+  > a {
+    color: #3c90df;
+    font-weight: normal;
+    text-decoration: none;
+    &.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+
 .btn {
   font-size: 15px;
 }

@@ -1,4 +1,4 @@
-Project Mgmt API app using
+Project Mgmt APP using
     - Node
     - Express
     - GraphQL

@@ -3,16 +3,17 @@ import { useMutation } from "@apollo/client";
 import { DELETE_PROJECT } from "./mutations/projectMutations";
 import { GET_PROJECTS } from "../queries/projectsQueries";
 import { useConfirmationModalContext } from "./ConfirmationContextModal";
+import { Button } from "react-bootstrap";
 
-export default function ProjectCard({ project , triggerEditProject }) {
+export default function ProjectCard({ project, triggerEditProject }) {
   const modalContext = useConfirmationModalContext();
 
   const onDelete = async (event) => {
-      const result = await modalContext.showConfirmation(
-          'Delete Project Confirmation!',
-          `This process can not be undone. Are you sure you want to delete: ${project.name} ?`
-      );
-      result && deleteProject();
+    const result = await modalContext.showConfirmation(
+      "Delete Project Confirmation!",
+      `This process can not be undone. Are you sure you want to delete: ${project.name} ?`
+    );
+    result && deleteProject();
   };
 
   const [deleteProject] = useMutation(DELETE_PROJECT, {
@@ -24,7 +25,9 @@ export default function ProjectCard({ project , triggerEditProject }) {
       cache.writeQuery({
         query: GET_PROJECTS,
         data: {
-          projects: projects.filter((project) => project.id !== deleteProject.id),
+          projects: projects.filter(
+            (project) => project.id !== deleteProject.id
+          ),
         },
       });
     },
@@ -36,12 +39,16 @@ export default function ProjectCard({ project , triggerEditProject }) {
       <td>{project.status}</td>
       <td>{project.description}</td>
       <td>
-        <button className="btn btn-danger btn-sm" onClick={onDelete}>
+        <Button variant="danger" size="sm" onClick={onDelete}>
           <FaTrash />
-        </button>
-        <button className="btn btn-primary btn-sm mx-1"  onClick={() => triggerEditProject(project)} >
+        </Button>
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={() => triggerEditProject(project)}
+        >
           <FaEdit />
-        </button>
+        </Button>
       </td>
     </tr>
   );

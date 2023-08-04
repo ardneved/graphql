@@ -4,6 +4,7 @@ import Header from './components/Header';
 import { ApolloProvider, ApolloClient } from '@apollo/client';
 import AppRoutes from './AppRoutes';
 import ConfirmationModalContextProvider from './components/ConfirmationContextModal';
+import { Container } from 'react-bootstrap';
 
 const client = new ApolloClient({
   // uncomment for dev api
@@ -19,9 +20,9 @@ function App() {
         <ConfirmationModalContextProvider>
           <Router>
             <Header />
-            <div className="container">
+            <Container>
               <AppRoutes />
-            </div>
+            </Container>
           </Router>
         </ConfirmationModalContextProvider>
       </ApolloProvider>

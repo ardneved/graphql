@@ -3,6 +3,7 @@ import { GET_PROJECTS } from "../queries/projectsQueries";
 
 import Spinner from "./Spinner";
 import ProjectCard from "./ProjectCard";
+import { Table } from "react-bootstrap";
 
 export default function Projects({ editProject }) {
   const { loading, error, data } = useQuery(GET_PROJECTS);
@@ -18,8 +19,8 @@ export default function Projects({ editProject }) {
     <>
       {!loading && !error && (
         <>
-          <h5 className="pt-3">Projects</h5>
-          <table className="table table-hover mt-3">
+          <h5 className="pt-1 px-1">Projects</h5>
+          <Table className="table table-hover mt-3"  responsive="lg">
             <thead>
               <tr>
                 <th>Name</th>
@@ -37,7 +38,7 @@ export default function Projects({ editProject }) {
                 />
               ))}
             </tbody>
-          </table>
+          </Table>
         </>
       )}
     </>

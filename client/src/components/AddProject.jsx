@@ -101,8 +101,10 @@ export const AddProjectModal = forwardRef((props, ref) => {
   return (
     <>
       <Button
+        variant="primary"
+        size="md"
         type="submit"
-        className="btn btn-secondary float-end"
+        className="float-end"
         onClick={handleShow}
       >
         <FaUser className="icon" />

@@ -28,8 +28,8 @@ code {
     font-weight: normal;
     text-decoration: none;
     &.active {
+      color:rgb(45, 44, 44);
       font-weight: bold;
-      text-decoration: underline;
     }
   }
 }
@@ -60,4 +60,10 @@ code {
 
 .icon {
   margin-right: 5px;
+}
+
+Table th,
+Table td {
+  white-space:normal !important; /* added this */
+  word-wrap: break-word !important;
 }

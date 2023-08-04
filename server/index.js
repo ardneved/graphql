@@ -15,6 +15,7 @@ const app = express()
 app.use(cors())
 // connect to database
 connectDB();
+app.get('/',(req, res) => res.send('Welcome to the Graphql Node API'));
 
 app.use('/graphql', graphqlHTTP({
     schema,
